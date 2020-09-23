@@ -1,0 +1,24 @@
+{
+  "name": "email-checker",
+  "version": "1.0.0",
+  "description": "Email checker web app",
+  "main": "emailChecker.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "start": "node emailChecker.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rothberry/email-checker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rothberry/email-checker/issues"
+  },
+  "homepage": "https://github.com/rothberry/email-checker#readme",
+  "devDependencies": {
+    "jest": "^26.4.2"
+  }
+}
