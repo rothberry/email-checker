@@ -7,7 +7,6 @@
  * Specifically: Gmail will ignore the placement of "." in the username. And it will ignore any portion of the username after a "+".
  * test.email@gmail.com == test.email+spam@gmail.com == testemail@gmail.com
  */
-const { test1, test2, test3, test4 } = require("./emailData")
 const emailChecker = (emails) => {
   // Create an object with key of username and value of domain
   let emailObj = {}
@@ -27,12 +26,10 @@ const emailChecker = (emails) => {
       }
     }
   })
-  // arr => [].concat(...arr)
-  const values = Object.values(emailObj) 
-  // const flattened = values => [].concat(...values)
-  const flattened =  values.reduce((acc, val) => acc.concat(val), []);
-  console.log(flattened)
-  return flattened.length
+  const values = Object.values(emailObj)
+  const uniqEmails = values.reduce((acc, val) => acc.concat(val), [])
+  // console.log(emailObj)
+  return uniqEmails.length
 }
 
 // Takes in the first half of the address and removes all extra characters
@@ -44,13 +41,16 @@ const makeUsername = (username) => {
     .split("+")[0]
 }
 
-// TESTING
-const res1 = emailChecker(test1)
-const res2 = emailChecker(test2)
-const res3 = emailChecker(test3)
-const res4 = emailChecker(test4)
+module.exports = emailChecker
 
-console.log(`\n1:`, "result:", res1, "\texpected:", 1, "\t", res1 === 1)
-console.log(`\n2:`, "result:", res2, "\texpected:", 3, "\t", res2 === 3)
-console.log(`\n3:`, "result:", res3, "\texpected:", 1, "\t", res3 === 1)
-console.log(`\n4:`, "result:", res4, "\texpected:", 15, "\t", res4 === 15)
+// // TESTING
+// const { test1, test2, test3, test4 } = require("./emailData")
+// const res1 = emailChecker(test1.map(data => data.email))
+// const res2 = emailChecker(test2.map(data => data.email))
+// const res3 = emailChecker(test3.map(data => data.email))
+// const res4 = emailChecker(test4.map(data => data.email))
+
+// console.log(`\n1:`, "result:", res1, "\texpected:", 1, "\t", res1 === 1)
+// console.log(`\n2:`, "result:", res2, "\texpected:", 3, "\t", res2 === 3)
+// console.log(`\n3:`, "result:", res3, "\texpected:", 1, "\t", res3 === 1)
+// console.log(`\n4:`, "result:", res4, "\texpected:", 15, "\t", res4 === 15)
