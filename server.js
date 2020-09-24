@@ -19,10 +19,14 @@ app.get("/", (req, res) => {
 
 app.post("/check", (req, res) => {
   // Create array of only emails
-  const emails = req.body.map((data) => data.email)
-  // console.log(emails)
-  const uniqEmails = emailChecker(emails)
-  res.json(uniqEmails)
+  if (!!req.body.length) {
+    const emails = req.body.map((data) => data.email)
+    // console.log(emails)
+    const uniqEmails = emailChecker(emails)
+    res.json(uniqEmails)
+  } else {
+    res.send("No Emails Sent")
+  }
 })
 
 // Listener

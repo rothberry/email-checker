@@ -42,15 +42,3 @@ const makeUsername = (username) => {
 }
 
 module.exports = emailChecker
-
-// // TESTING
-// const { test1, test2, test3, test4 } = require("./testData/emailData")
-// const res1 = emailChecker(test1.map(data => data.email))
-// const res2 = emailChecker(test2.map(data => data.email))
-// const res3 = emailChecker(test3.map(data => data.email))
-// const res4 = emailChecker(test4.map(data => data.email))
-
-// console.log(`\n1:`, "result:", res1, "\texpected:", 1, "\t", res1 === 1)
-// console.log(`\n2:`, "result:", res2, "\texpected:", 3, "\t", res2 === 3)
-// console.log(`\n3:`, "result:", res3, "\texpected:", 1, "\t", res3 === 1)
-// console.log(`\n4:`, "result:", res4, "\texpected:", 15, "\t", res4 === 15)
