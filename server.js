@@ -20,8 +20,9 @@ app.get("/", (req, res) => {
 app.post("/check", (req, res) => {
   // Create array of only emails
   if (!!req.body.length) {
+    // console.log(req.body)
     const emails = req.body.map((data) => data.email)
-    // console.log(emails)
+    console.log(emails)
     const uniqEmails = emailChecker(emails)
     res.json(uniqEmails)
   } else {
