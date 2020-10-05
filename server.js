@@ -1,7 +1,6 @@
 // Dependencies
 // =============================================================
 const express = require("express")
-const path = require("path")
 const emailChecker = require("./emailChecker")
 
 const app = express()
@@ -23,8 +22,8 @@ app.post("/check", (req, res) => {
     // console.log(req.body)
     const emails = req.body.map((data) => data.email)
     console.log(emails)
-    const uniqEmails = emailChecker(emails)
-    res.json(uniqEmails)
+    const numUniqEmails = emailChecker(emails)
+    res.json(numUniqEmails)
   } else {
     res.send("No Emails Sent")
   }

@@ -42,7 +42,7 @@ const emailChecker = (emails) => {
 
 // Email validation helper function
 const isValidEmail = (emailStr) => {
-  return !!emailStr.match(emailRegex)
+  if (!!emailStr) return !!emailStr.match(emailRegex)
 }
 
 // Helper function that takes in the first half of the address and removes all extra characters
