@@ -11,8 +11,6 @@ const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+")
 
 // Main function
 const emailChecker = (emails) => {
-  // Recieved as JSON [{"email": "person@email.com"}]
-  // But sent to this function as an
   // Create an object with key of username and value of domain
   let emailObj = {}
   emails.forEach((email) => {
@@ -35,9 +33,8 @@ const emailChecker = (emails) => {
     }
   })
   const values = Object.values(emailObj)
-  const uniqEmails = values.reduce((acc, val) => acc.concat(val), [])
-  // console.log(emailObj)
-  return uniqEmails.length
+  const numUniqEmails = values.reduce((acc, val) => acc.concat(val), []).length
+  return numUniqEmails
 }
 
 // Email validation helper function
